@@ -12,10 +12,21 @@ function Effect() {
   };
 
   useEffect(() => {
+    let request = new XMLHttpRequest();
+    request.open("GET", "https://jsonplaceholder.typicode.com/comments");
+    request.send();
+    request.onload = () => {
+      const responseJSON = JSON.parse(request.responseText);
+      setPostValue(responseJSON);
+    };
+  }, []);
+
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/comments")
       .then((resp) => resp.json())
       .then((data) => {
         setPosts(data);
+
         setPostValue(data);
       });
   }, []);
