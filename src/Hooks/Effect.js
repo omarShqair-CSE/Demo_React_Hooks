@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Effect() {
+export default function Effect() {
   const [posts, setPosts] = useState([]);
   const [postValue, setPostValue] = useState([]);
 
@@ -58,5 +58,3 @@ function Effect() {
     </div>
   );
 }
-
-export default Effect;
